@@ -3,3 +3,18 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+# Page d'accueil
+home:
+    path: /
+    controller: App\Controller\DefaultController::home
+
+# Page de contact
+contact:
+    path: /contact
+    controller: App\Controller\DefaultController::contact
+
+# Page de mentions légales
+legal:
+    path: /mentions-legales
+    controller: App\Controller\DefaultController::legal

@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block page_title %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ post.title }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row mb-4">
+        <div class="col-lg-8 mx-auto text-center">
+            <div class="text-muted mb-4">
+                <small class="text-muted">Rédigé par <a href="#">{{ post.user.fullname }}</a> - le {{ post.createdAt | date('d/m/Y') }}</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Affichage des messages flash -->
+
+    <!-- Contenu de l'article -->
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+
+            <!-- Image principale -->
+            <img src="{{ post.image }}"
+                 alt="{{ post.title }}" class="img-fluid mb-4 rounded">
+
+            <!-- Corps de l'article -->
+            <div class="article-content">
+                {{ post.content }}
+            </div>
+
+            <!-- Navigation entre articles -->
+            <div class="d-flex justify-content-between mt-5 pt-3 border-top">
+                <a href="#" class="btn btn-outline-primary">&larr; Article précédent</a>
+                <a href="#" class="btn btn-outline-primary">Article suivant &rarr;</a>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Accueil{% endblock %}
+{% block page_title %}Accueil{% endblock %}
+
+{% block content %}
+
+{#  Sur la page  {{ dump(posts) }}#}
+{#  Sur le profiler  {% dump posts %}#}
+
+    <div class="row">
+        {% for post in posts %}
+            {% include 'partials/_post.html.twig' %}
+        {% endfor %}
+    </div> <!-- /.row -->
+
+{% endblock %}
