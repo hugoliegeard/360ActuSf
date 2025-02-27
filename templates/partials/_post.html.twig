@@ -6,7 +6,11 @@
             <h5 class="card-title">{{ post.title }}</h5>
             <small class="text-muted">Rédigé par : <a href="#">{{ post.user.firstname }}</a> - le {{ post.createdAt | date('d/m/Y') }}</small>
             <p class="card-text">{{ post.content }}</p>
-            <a href="#" class="btn w-100 btn-outline-primary">Lire la suite</a>
+            <a href="{{ path('default_post', {
+                'category' : post.category.slug,
+                'slug' : post.slug,
+                'id' : post.id
+            }) }}" class="btn w-100 btn-outline-primary">Lire la suite</a>
         </div>
     </div>
 </div>

@@ -37,8 +37,8 @@ class AppFixtures extends Fixture
             ->setSlug('culture');
 
         $sport = new Category();
-        $sport->setName('Sport')
-            ->setSlug('sport');
+        $sport->setName('Sports')
+            ->setSlug('sports');
 
         $sante = new Category();
         $sante->setName('Santé')

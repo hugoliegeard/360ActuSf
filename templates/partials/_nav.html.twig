@@ -1,32 +1,32 @@
 <ul class="navbar-nav text-center mx-auto mb-2 mb-lg-0">
     <li class="nav-item">
         <a class="nav-link active" aria-current="page"
-           href="accueil">Accueil</a>
+           href="{{ path('home') }}">Accueil</a>
     </li>
     <li class="nav-item">
         <a class="nav-link"
-           href="politique">
+           href="{{ path('default_category', { 'slug' : 'politique' }) }}">
             Politique </a>
     </li>
     <li class="nav-item">
         <a class="nav-link"
-           href="economie">
+           href="{{ path('default_category', { 'slug' : 'economie' }) }}">
             Economie </a>
     </li>
     <li class="nav-item">
         <a class="nav-link"
-           href="culture">
+           href="{{ path('default_category', { 'slug' : 'culture' }) }}">
             Culture </a>
     </li>
     <li class="nav-item">
         <a class="nav-link"
-           href="loisirs">
-            Loisirs </a>
+           href="{{ path('default_category', { 'slug' : 'sports' }) }}">
+            Sports </a>
     </li>
     <li class="nav-item">
         <a class="nav-link"
-           href="sports">
-            Sports </a>
+           href="{{ path('default_category', { 'slug' : 'sante' }) }}">
+            Sante </a>
     </li>
 </ul>
 <div class="text-right">
