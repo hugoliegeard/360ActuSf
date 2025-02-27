@@ -13,8 +13,8 @@ class DefaultController extends AbstractController
 {
     public function home(PostRepository $postRepository): Response
     {
-        # Récupération de tous les articles
-        $posts = $postRepository->findAll();
+        # Récupération des 6 derniers articles, ordonnés par date de création décroissante
+        $posts = $postRepository->findBy([], ['createdAt' => 'DESC'], 6);
 
         # Affichage de la vue et le passage de la variable posts
         return $this->render('default/home.html.twig', [
@@ -23,7 +23,7 @@ class DefaultController extends AbstractController
     }
 
     # http://localhost:8000/category/politique
-        #[Route('/category/{slug}', name: 'default_category', methods: ['GET'])]
+    #[Route('/category/{slug}', name: 'default_category', methods: ['GET'])]
     public function category($slug, CategoryRepository $categoryRepository): Response
     {
         # Récupération de la catégorie
