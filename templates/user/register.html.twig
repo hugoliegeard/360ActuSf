@@ -4,6 +4,6 @@
 {% block page_title %}Inscription{% endblock %}
 
 {% block content %}
-    {{ form(form) }}
+    {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
 {% endblock %}
 

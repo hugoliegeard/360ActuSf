@@ -27,6 +27,14 @@
 
         <div class="py-5 bg-light">
             <div class="container">
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
                 {% block content %}{% endblock %}
             </div>
         </div>

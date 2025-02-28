@@ -30,6 +30,18 @@
     </li>
 </ul>
 <div class="text-right">
-    <a class="nav-item btn btn-outline-info" href="connexion.html">Connexion</a>
-    <a class="nav-item btn btn-outline-warning" href="inscription.html">Inscription</a>
+    {% if app.user %}
+        <span class="navbar-text mx-2">
+            Bienvenue {{ app.user.firstname }} 🔆
+        </span>
+
+        {% if is_granted('ROLE_AUTHOR') %}
+            <a class="nav-item btn btn-warning" href="{{ path('post_create') }}">Créer un article</a>
+        {% endif %}
+
+        <a class="nav-item btn btn-outline-info" href="{{ path('app_logout') }}">Déconnexion</a>
+    {% else %}
+        <a class="nav-item btn btn-outline-info" href="{{ path('app_login') }}">Connexion</a>
+        <a class="nav-item btn btn-outline-warning" href="{{ path('user_register') }}">Inscription</a>
+    {% endif %}
 </div>

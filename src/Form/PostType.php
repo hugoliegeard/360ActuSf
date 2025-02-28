@@ -32,10 +32,10 @@ class PostType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'name',
             ])
-            ->add('user', EntityType::class, [
+            /*->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'fullname',
-            ])
+            ])*/
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',
                 'attr' => [

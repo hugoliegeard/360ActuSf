@@ -24,15 +24,21 @@ class PostController extends AbstractController
                                #[Autowire('%kernel.project_dir%/public/uploads/posts')] string $postsDirectory,
                                EntityManagerInterface $entityManager): Response
     {
+        # Récupération de l'utilisateur connecté dans un controller
+        $user = $this->getUser();
+
         # Création d'un article
         $post = new Post();
+
+        # Affectation de l'utilisateur connecté à l'article
+        $post->setUser($user);
 
         # Création du formulaire
         $form = $this->createForm(PostType::class, $post)
             ->handleRequest($request);
 
         # Si le formulaire est soumis et valide
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             # Upload de l'image
             /** @var UploadedFile $imageFile */

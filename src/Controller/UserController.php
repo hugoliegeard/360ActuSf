@@ -26,7 +26,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         # Si le formulaire est soumis et valide
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
             # Hashage du mot de passe
             $user->setPassword(
@@ -43,8 +43,8 @@ class UserController extends AbstractController
             # Message flash
             $this->addFlash('success', 'Votre compte a bien été créé');
 
-            # TODO Redirection vers la page de connexion
-            return $this->redirectToRoute('home');
+            # Redirection vers la page de connexion
+            return $this->redirectToRoute('app_login');
 
         }
 

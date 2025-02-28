@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
@@ -15,12 +16,17 @@ class Post
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Vous devez saisir un titre.')]
+    #[Assert\Length(max: 255, maxMessage: 'Pas plus de {{ limit }} caractères.')]
     private ?string $title = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Vous devez saisir un slug.')]
+    #[Assert\Length(max: 255, maxMessage: 'Pas plus de {{ limit }} caractères.')]
     private ?string $slug = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Vous devez saisir un contenu.')]
     private ?string $content = null;
 
     #[ORM\Column(length: 180)]
@@ -31,6 +37,7 @@ class Post
 
     #[ORM\ManyToOne(inversedBy: 'posts')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Assert\NotBlank(message: 'Vous devez choisir une catégorie.')]
     private ?Category $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'posts')]
